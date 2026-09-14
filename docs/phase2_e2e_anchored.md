@@ -99,7 +99,9 @@ reaction is what breaks first.
 
 The shipped checkpoint (seed 42, iteration 1050): 0.086 m/s, f0 1.94 Hz,
 clearance 6.9 mm, 4-point rhythm loss under full noise, open-loop 681 mm.
-All four seeds held the gates through the full 1300 iterations.
+All four seeds produce full-pass checkpoints after the ramp; one seed sits
+on the f0 bar (1.73–1.89 across repeated evals of one checkpoint) and
+needs the median-of-3 rule, which is why the rule exists.
 
 ## On the floor
 

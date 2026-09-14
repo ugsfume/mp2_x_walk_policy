@@ -80,6 +80,48 @@ tools/               check_record.py (configs vs the recorded training dumps), c
 docs/                environment, phase 1, phase 2, methodology, deployment
 ```
 
+## Reproduced from this repo
+
+Everything below was run from this repository as published, on one RTX 5080
+(Isaac Sim 6.0.1, Isaac Lab `ffff603`, rsl_rl 5.0.1), with the scripts above
+and no other input than the shipped checkpoints.
+
+**Phase 1** — `phase1/run_train.sh`, 4 seeds × 500 iterations, 8–10 min
+each; `model_499` on `MP2-Walk-CpgResidual-PlayRand-v0`:
+
+| seed | speed m/s | f0 Hz | clearance mm | pitch ° | gates |
+|---|---|---|---|---|---|
+| 42 | 0.105 | 2.04 | 6.6 | 1.00 | pass |
+| 1 | 0.098 | 2.04 | 5.6 | 1.16 | pass |
+| 2 | 0.108 | 2.04 | 8.5 | 1.49 | pass |
+| 3 | 0.100 | 2.04 | 6.1 | 0.22 | pass — **byte-identical to the shipped checkpoint** |
+
+**Clone** — `phase2/run_distill.sh` from the seed-3 checkpoint: 614,400
+pairs, 3.54% clipped labels (shipped clone: 3.54%), closed-loop 0.058 m/s,
+f0 2.04 Hz, clearance 6.1 mm, all gates pass (shipped clone: 0.061 m/s).
+
+**Phase 2** — `phase2/run_train.sh` from the shipped clone, 4 seeds × 1300
+iterations, 21–24 min each; `model_1050` on `MP2-Walk-E2E-PlayRand-v0` and
+the robustness gate on `MP2-Walk-E2E-Noisy-v0`:
+
+| seed | speed m/s | f0 Hz | clearance mm | rhythm loss under noise | speed kept | gates |
+|---|---|---|---|---|---|---|
+| 42 | 0.083 | 1.94 | 8.6 | 3.7 pts | 1.05 | pass — **byte-identical to the shipped checkpoint** |
+| 1 | 0.085 | 1.84 | 10.5 | 2.8 pts | 0.90 | pass |
+| 2 | 0.082 | 1.94 | 8.9 | 6.7 pts | 0.90 | pass |
+| 3 | 0.085 | 1.73 | 11.3 | 2.3 pts | 0.86 | f0 below 1.80 at 1050 (three evals: 1.73 / 1.73 / 1.89); passes at iteration 1150 (f0 1.84, 0.084 m/s) |
+
+`phase2/run_select.sh` on the seed-42 run: 7 of 8 post-ramp checkpoints
+pass every gate (one f0 within scatter of the bar), the fastest (iteration
+550, 0.087 m/s) clears the open-loop bar at 755 mm. Speed differences of a
+few mm/s between post-ramp checkpoints are evaluation scatter, not
+learning; the shipped iteration-1050 checkpoint is one full pass among
+several.
+
+Training is deterministic on one machine, so the two byte-identical
+checkpoints are expected; on other hardware expect the same tables within
+evaluation scatter, not the same bytes.
+
 ## Evaluation in simulation, and what it can't tell you
 
 `scripts/eval.sh` runs 32 randomised 9.8 s episodes at 0.10 m/s and scores
