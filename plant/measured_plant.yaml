@@ -1,0 +1,68 @@
+# The simulated plant, and where each number came from. One Mini Pupper V2
+# unit, measured 2026-08. Mirrored in mp2_x_walk_policy/plant.py; the
+# training configs read plant.py, this file is the human-readable record.
+#
+# All identification was done with the robot lifted (legs free) except the
+# mass, the toe stiffness and the friction test.
+
+actuator:                       # mp2_x_walk_policy.actuators:BacklashDCMotor
+  model: DCMotor torque-speed saturation + command delay buffer + drive-side backlash
+  effort_limit_nm: 0.70
+  effort_limit_note: >
+    Datasheet stall torque is 0.35 N m and a loaded hip test read 0.25-0.42 N m,
+    so 0.70 is not a measurement. In simulation the scripted reference gait
+    cannot lift a front leg below ~0.40 N m; 0.70 is a working value above
+    that cliff at which the reference gait's sim distance matches the floor.
+  velocity_limit_rad_s: 16.0
+  velocity_limit_note: >
+    Slew ladder (constant-speed triangles, amplitude scaled so each traverse
+    has >= 8 samples): 11-12 rad/s sustained (p75), 25-31 rad/s transient
+    (p95). 16 sits between the two.
+  stiffness: 2.0
+  damping: 0.21
+  stiffness_note: >
+    NOT the servo's position loop -- the servo tracks its command closely.
+    This is the compliance of the horn-to-toe chain expressed as a joint-space
+    PD, tuned so the scripted reference gait covers the same distance in
+    simulation as on glossy wood (0.97x at 0.10 m/s, 1.03x at 0.15 m/s).
+    The bench value (toe lateral stiffness 736 N/m, i.e. ~7.6 N m/rad at the
+    joint) leaves simulation 1.8x optimistic; the effective 2.0 is what
+    closes the gap. Treat it as a fitted cell, not a physical constant.
+  friction: 0.03                # datasheet-style default, kept
+  armature: 0.005               # kept; randomising it collapsed training
+  delay_physics_steps: [25, 45] # 50-90 ms at sim.dt 0.002, resampled per env per episode
+  delay_note: >
+    Chirp test 0.2-6 Hz: gain flat to ~5 Hz with a constant equivalent lag,
+    i.e. a pure transport delay of ~70 ms (knee 78-84, hip 59-71, abduction
+    66-74 ms). It is a command-to-measurement round trip and the split
+    between actuation and sensing is not identifiable, hence the band.
+  backlash_rad: 0.05
+  backlash_note: 3-4 mm of free toe travel before the servo resists, measured by hand at the toe.
+
+asset:                          # assets/mini_pupper_2_isaac_v27/
+  source: mangdangroboticsclub/mini_pupper_ros, ros2-dev @ c3ad28c, mini_pupper_description
+  total_mass_kg: 0.448          # scale; the URDF summed to 0.497 with a duplicated base mass
+  base_link_mass_kg: 0.300474   # 0.174884 in the URDF; inertia scaled by the same 1.718
+  base_inertia_link_mass_kg: 0.0001  # was a duplicate of base_link's mass
+  geometry: URDF chain checked against tape measurements, 1-3% agreement, unchanged
+  colliders: convex hull; contact reporting enabled on all 30 rigid bodies
+
+ground:
+  friction_static: 1.0
+  friction_dynamic: 1.0
+  note: >
+    Propulsion in simulation is flat in friction between 0.5 and 2.0. A
+    padded mat measured mu > 1.43 (tilt test, no slip at 55 deg); glossy wood
+    was not measured.
+
+simulation:
+  physics_dt_s: 0.002
+  control_dt_s: 0.020
+  episode_s: 10.0
+  solver: PhysX TGS, 8 position / 0 velocity iterations, gpu_max_rigid_patch_count 327680
+
+randomisation_at_reset:
+  hip_stiffness_scale: [0.80, 1.0]     # both tasks; the unit delivers less swing on one side
+  all_joint_stiffness_scale: [0.5, 1.5] # end-to-end task only
+  all_joint_damping_scale: [0.5, 1.5]   # end-to-end task only
+  all_joint_friction_scale: [0.5, 2.0]  # end-to-end task only

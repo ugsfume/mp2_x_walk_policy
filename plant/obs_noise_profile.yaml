@@ -1,0 +1,51 @@
+# Observation noise the policies were trained under: uniform U(-a, a) added
+# to four observation channels, plus a randomised observation delay.
+#
+# Each amplitude is sqrt(3) x the per-channel excess standard deviation of
+# the REAL policy input over the SIMULATED one along the same joint-target
+# stream, played back open-loop on the robot (analysis/obs_gap.py,
+# docs/methodology.md). sqrt(3) converts an sd to the half-width of a uniform
+# distribution with that sd. These are measurements, not tuning knobs.
+
+channels:
+  base_ang_vel:
+    amplitude_rad_s: 1.0
+    measured_excess_sd: 0.60-0.74
+    note: IMU gyro through the gait; upper bound where the replayed body path diverged from sim
+  projected_gravity:
+    amplitude: 0.30
+    measured_excess_sd: 0.17-0.21
+    note: accelerometer direction; upper bound as above
+  joint_vel:
+    amplitude_rad_s: 4.8
+    measured_excess_sd: 2.75-2.92
+    note: >
+      finite difference of servo position readings at 50 Hz; 1 LSB of the
+      10-bit servo = 0.286 rad/s. Gait-independent (2.75-2.92 across three
+      gaits).
+  joint_pos:
+    cpg_residual_amplitude_rad: 0.05
+    end_to_end_amplitude_rad: 0.174
+    measured_excess_sd: 0.085 (CPG gait), 0.100-0.101 (end-to-end gait)
+    note: >
+      Gait-dependent: measure it along the candidate policy's OWN replayed
+      gait. The CPG task trained at a third of its measured value so that
+      proprioception stays usable next to the clock; the end-to-end task
+      trained at the full value measured along its predecessor's gait, and
+      the resulting policy's own gait re-measured at 0.156-0.162, inside it.
+
+clean_floor:                    # what the terms are declared with; the
+  base_ang_vel: 0.05            # end-to-end task ramps from here to the
+  projected_gravity: 0.02       # amplitudes above (hold 150 iterations,
+  joint_pos: 0.01               # ramp 300)
+  joint_vel: 0.2
+
+observation_delay_steps: [0, 2] # 0-40 ms, per env per episode; the sensing-side share of the ~100 ms round trip
+
+what_this_bought:               # the check that the noise model is right
+  note: >
+    The CPG policy trained WITHOUT this profile lost 21-27 points of gait
+    rhythm and 40% of distance on the robot relative to its own open-loop
+    replay. Evaluated in simulation under the measured amplitudes it loses
+    ~23 rhythm points -- the same number. That equivalence is the
+    validation; a re-measured profile on another unit should reproduce it.
