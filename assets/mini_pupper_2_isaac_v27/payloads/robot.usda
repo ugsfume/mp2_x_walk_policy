@@ -1,0 +1,377 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "URDF USD Converter v0.1.3"
+    }
+    defaultPrim = "mini_pupper_2"
+    doc = """Generated from Composed Stage of root layer /tmp/tmpnui_hkl0/mini_pupper_2.usdc
+
+
+Generated from Composed Stage of root layer /tmp/urdf_import_mini_pupper_2_isaac_v27_hwqk_cmh/usdex_mini_pupper_2_isaac_v27/mini_pupper_2.usdc
+
+
+Generated from Composed Stage of root layer /tmp/urdf_import_mini_pupper_2_isaac_v27_hwqk_cmh/temp_mini_pupper_2_isaac_v27/mini_pupper_2_isaac_v27.usd
+
+
+Generated from Composed Stage of root layer payloads/base.usd
+"""
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+over "mini_pupper_2" (
+    prepend apiSchemas = ["IsaacRobotAPI"]
+)
+{
+    custom rel isaac:physics:robotJoints
+    custom rel isaac:physics:robotLinks
+
+    over "Physics"
+    {
+        over "base_lf1" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "base_rf1" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "base_rb1" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "base_lb1" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "base_link_to_base_inertia" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "base_front" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "base_board" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "base_sides" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "imu_joint" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "lf1_lf2" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "lf1_hip" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "lf2_lf3" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "lf2_shell" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "lf3_foot" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "rf1_rf2" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "rf1_hip" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "rf2_rf3" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "rf2_shell" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "rf3_foot" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "rb1_rb2" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "rb2_hip" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "rb2_rb3" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "rb2_shell" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "rb3_foot" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "lb1_lb2" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "lb1_hip" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "lb2_lb3" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "lb2_shell" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+
+        over "lb3_foot" (
+            prepend apiSchemas = ["IsaacJointAPI"]
+        )
+        {
+        }
+    }
+
+    over "Geometry"
+    {
+        over "base_link" (
+            prepend apiSchemas = ["IsaacLinkAPI"]
+        )
+        {
+            over "lf1" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+                over "lf2" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "lf3" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                        over "lffoot" (
+                            prepend apiSchemas = ["IsaacLinkAPI"]
+                        )
+                        {
+                        }
+                    }
+
+                    over "lpf2" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+                }
+
+                over "lpf1" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                }
+            }
+
+            over "rf1" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+                over "rf2" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "rf3" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                        over "rffoot" (
+                            prepend apiSchemas = ["IsaacLinkAPI"]
+                        )
+                        {
+                        }
+                    }
+
+                    over "rpf2" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+                }
+
+                over "rpf1" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                }
+            }
+
+            over "rb1" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+                over "rb2" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "rb3" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                        over "rbfoot" (
+                            prepend apiSchemas = ["IsaacLinkAPI"]
+                        )
+                        {
+                        }
+                    }
+
+                    over "rpb2" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+                }
+
+                over "rpb1" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                }
+            }
+
+            over "lb1" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+                over "lb2" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "lb3" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                        over "lbfoot" (
+                            prepend apiSchemas = ["IsaacLinkAPI"]
+                        )
+                        {
+                        }
+                    }
+
+                    over "lpb2" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                    }
+                }
+
+                over "lpb1" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                }
+            }
+
+            over "base_inertia" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+            }
+
+            over "Body_front" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+            }
+
+            over "Board_PCB" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+            }
+
+            over "Shell_Side" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+            }
+
+            over "imu_link" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+            }
+        }
+    }
+}
+

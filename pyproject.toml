@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mp2_x_walk_policy"
+version = "1.0.0"
+description = "Mini Pupper V2 forward-walking policies: training, distillation, evaluation and export"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [{name = "Kenneth LKH"}]
+requires-python = ">=3.12"
+# Isaac Sim, Isaac Lab and rsl_rl are installed separately (docs/environment.md);
+# they are not pip-resolvable from PyPI.
+dependencies = ["numpy"]
+
+[project.optional-dependencies]
+deploy = ["onnxruntime"]
+
+[tool.setuptools.packages.find]
+include = ["mp2_x_walk_policy*"]

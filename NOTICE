@@ -1,0 +1,17 @@
+mp2_x_walk_policy
+Copyright 2026 Kenneth LKH
+
+Licensed under the Apache License, Version 2.0. See LICENSE.
+
+This repository contains material derived from third-party work:
+
+- assets/mini_pupper_2_isaac_v27/ is a USD conversion of the Mini Pupper 2
+  robot description from mangdangroboticsclub/mini_pupper_ros
+  (Apache License 2.0, Copyright 2022-2026 MANGDANG TECHNOLOGY CO., LIMITED),
+  with the base link mass and inertia corrected to a scale measurement.
+- mp2_x_walk_policy/algorithms.py (AnchorPPO.update) is adapted from the PPO
+  update loop of rsl_rl 5.0.1 (BSD-3-Clause, Copyright 2021-2026 ETH Zurich
+  and NVIDIA CORPORATION).
+- mp2_x_walk_policy/actuators.py (DelayedDCMotor) mirrors the delay buffer
+  of Isaac Lab's DelayedPDActuator (BSD-3-Clause, Copyright 2022-2026 The
+  Isaac Lab Project Developers).

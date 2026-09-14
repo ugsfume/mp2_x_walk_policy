@@ -1,0 +1,854 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "URDF USD Converter v0.1.3"
+    }
+    defaultPrim = "mini_pupper_2"
+    doc = """Generated from Composed Stage of root layer /tmp/tmpnui_hkl0/mini_pupper_2.usdc
+
+
+Generated from Composed Stage of root layer /tmp/urdf_import_mini_pupper_2_isaac_v27_hwqk_cmh/usdex_mini_pupper_2_isaac_v27/mini_pupper_2.usdc
+
+
+Generated from Composed Stage of root layer /tmp/urdf_import_mini_pupper_2_isaac_v27_hwqk_cmh/temp_mini_pupper_2_isaac_v27/mini_pupper_2_isaac_v27.usd
+
+
+Generated from Composed Stage of root layer payloads/base.usd
+"""
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "mini_pupper_2" (
+    prepend references = @./payloads/base.usda@
+    variants = {
+        string Physics = "physx"
+    }
+    append variantSets = "Physics"
+)
+{
+    over "Geometry"
+    {
+        over "base_link" (
+            prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+        )
+        {
+            custom float physxContactReport:threshold = 0
+            custom float physxRigidBody:sleepThreshold = 0
+
+            over "lf1" (
+                prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+            )
+            {
+                custom float physxContactReport:threshold = 0
+                custom float physxRigidBody:sleepThreshold = 0
+
+                over "lf2" (
+                    prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+                )
+                {
+                    custom float physxContactReport:threshold = 0
+                    custom float physxRigidBody:sleepThreshold = 0
+
+                    over "lf3" (
+                        prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+                    )
+                    {
+                        custom float physxContactReport:threshold = 0
+                        custom float physxRigidBody:sleepThreshold = 0
+
+                        over "lffoot" (
+                            prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+                        )
+                        {
+                            custom float physxContactReport:threshold = 0
+                            custom float physxRigidBody:sleepThreshold = 0
+
+                            over "lffoot" (
+                                instanceable = false
+                            )
+                            {
+                                over "VisualMaterials"
+                                {
+                                    over "opaque666666" (
+                                        instanceable = false
+                                    )
+                                    {
+                                    }
+                                }
+                            }
+
+                            over "lffoot_1" (
+                                instanceable = false
+                            )
+                            {
+                            }
+                        }
+
+                        over "lf3" (
+                            instanceable = false
+                        )
+                        {
+                            over "VisualMaterials"
+                            {
+                                over "opaque252525" (
+                                    instanceable = false
+                                )
+                                {
+                                }
+                            }
+                        }
+
+                        over "lf3_1" (
+                            instanceable = false
+                        )
+                        {
+                        }
+                    }
+
+                    over "lpf2" (
+                        prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+                    )
+                    {
+                        custom float physxContactReport:threshold = 0
+                        custom float physxRigidBody:sleepThreshold = 0
+
+                        over "lpf2" (
+                            instanceable = false
+                        )
+                        {
+                            over "VisualMaterials"
+                            {
+                                over "opaque2552210" (
+                                    instanceable = false
+                                )
+                                {
+                                }
+                            }
+                        }
+
+                        over "lpf2_1" (
+                            instanceable = false
+                        )
+                        {
+                        }
+                    }
+
+                    over "lf2" (
+                        instanceable = false
+                    )
+                    {
+                        over "VisualMaterials"
+                        {
+                            over "opaque636363" (
+                                instanceable = false
+                            )
+                            {
+                            }
+                        }
+                    }
+
+                    over "lf2_1" (
+                        instanceable = false
+                    )
+                    {
+                    }
+                }
+
+                over "lpf1" (
+                    prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+                )
+                {
+                    custom float physxContactReport:threshold = 0
+                    custom float physxRigidBody:sleepThreshold = 0
+
+                    over "lpf1" (
+                        instanceable = false
+                    )
+                    {
+                        over "VisualMaterials"
+                        {
+                            over "opaque2552210" (
+                                instanceable = false
+                            )
+                            {
+                            }
+                        }
+                    }
+
+                    over "lpf1_1" (
+                        instanceable = false
+                    )
+                    {
+                    }
+                }
+
+                over "lf1" (
+                    instanceable = false
+                )
+                {
+                    over "VisualMaterials"
+                    {
+                        over "opaque666666" (
+                            instanceable = false
+                        )
+                        {
+                        }
+                    }
+                }
+
+                over "lf1_1" (
+                    instanceable = false
+                )
+                {
+                }
+            }
+
+            over "rf1" (
+                prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+            )
+            {
+                custom float physxContactReport:threshold = 0
+                custom float physxRigidBody:sleepThreshold = 0
+
+                over "rf2" (
+                    prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+                )
+                {
+                    custom float physxContactReport:threshold = 0
+                    custom float physxRigidBody:sleepThreshold = 0
+
+                    over "rf3" (
+                        prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+                    )
+                    {
+                        custom float physxContactReport:threshold = 0
+                        custom float physxRigidBody:sleepThreshold = 0
+
+                        over "rffoot" (
+                            prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+                        )
+                        {
+                            custom float physxContactReport:threshold = 0
+                            custom float physxRigidBody:sleepThreshold = 0
+
+                            over "rffoot" (
+                                instanceable = false
+                            )
+                            {
+                                over "VisualMaterials"
+                                {
+                                    over "opaque666666" (
+                                        instanceable = false
+                                    )
+                                    {
+                                    }
+                                }
+                            }
+
+                            over "rffoot_1" (
+                                instanceable = false
+                            )
+                            {
+                            }
+                        }
+
+                        over "rf3" (
+                            instanceable = false
+                        )
+                        {
+                            over "VisualMaterials"
+                            {
+                                over "opaque252525" (
+                                    instanceable = false
+                                )
+                                {
+                                }
+                            }
+                        }
+
+                        over "rf3_1" (
+                            instanceable = false
+                        )
+                        {
+                        }
+                    }
+
+                    over "rpf2" (
+                        prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+                    )
+                    {
+                        custom float physxContactReport:threshold = 0
+                        custom float physxRigidBody:sleepThreshold = 0
+
+                        over "rpf2" (
+                            instanceable = false
+                        )
+                        {
+                            over "VisualMaterials"
+                            {
+                                over "opaque2552210" (
+                                    instanceable = false
+                                )
+                                {
+                                }
+                            }
+                        }
+
+                        over "rpf2_1" (
+                            instanceable = false
+                        )
+                        {
+                        }
+                    }
+
+                    over "rf2" (
+                        instanceable = false
+                    )
+                    {
+                        over "VisualMaterials"
+                        {
+                            over "opaque636363" (
+                                instanceable = false
+                            )
+                            {
+                            }
+                        }
+                    }
+
+                    over "rf2_1" (
+                        instanceable = false
+                    )
+                    {
+                    }
+                }
+
+                over "rpf1" (
+                    prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+                )
+                {
+                    custom float physxContactReport:threshold = 0
+                    custom float physxRigidBody:sleepThreshold = 0
+
+                    over "rpf1" (
+                        instanceable = false
+                    )
+                    {
+                        over "VisualMaterials"
+                        {
+                            over "opaque2552210" (
+                                instanceable = false
+                            )
+                            {
+                            }
+                        }
+                    }
+
+                    over "rpf1_1" (
+                        instanceable = false
+                    )
+                    {
+                    }
+                }
+
+                over "rf1" (
+                    instanceable = false
+                )
+                {
+                    over "VisualMaterials"
+                    {
+                        over "opaque666666" (
+                            instanceable = false
+                        )
+                        {
+                        }
+                    }
+                }
+
+                over "rf1_1" (
+                    instanceable = false
+                )
+                {
+                }
+            }
+
+            over "rb1" (
+                prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+            )
+            {
+                custom float physxContactReport:threshold = 0
+                custom float physxRigidBody:sleepThreshold = 0
+
+                over "rb2" (
+                    prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+                )
+                {
+                    custom float physxContactReport:threshold = 0
+                    custom float physxRigidBody:sleepThreshold = 0
+
+                    over "rb3" (
+                        prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+                    )
+                    {
+                        custom float physxContactReport:threshold = 0
+                        custom float physxRigidBody:sleepThreshold = 0
+
+                        over "rbfoot" (
+                            prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+                        )
+                        {
+                            custom float physxContactReport:threshold = 0
+                            custom float physxRigidBody:sleepThreshold = 0
+
+                            over "rbfoot" (
+                                instanceable = false
+                            )
+                            {
+                                over "VisualMaterials"
+                                {
+                                    over "opaque666666" (
+                                        instanceable = false
+                                    )
+                                    {
+                                    }
+                                }
+                            }
+
+                            over "rbfoot_1" (
+                                instanceable = false
+                            )
+                            {
+                            }
+                        }
+
+                        over "rb3" (
+                            instanceable = false
+                        )
+                        {
+                            over "VisualMaterials"
+                            {
+                                over "opaque252525" (
+                                    instanceable = false
+                                )
+                                {
+                                }
+                            }
+                        }
+
+                        over "rb3_1" (
+                            instanceable = false
+                        )
+                        {
+                        }
+                    }
+
+                    over "rpb2" (
+                        prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+                    )
+                    {
+                        custom float physxContactReport:threshold = 0
+                        custom float physxRigidBody:sleepThreshold = 0
+
+                        over "rpb2" (
+                            instanceable = false
+                        )
+                        {
+                            over "VisualMaterials"
+                            {
+                                over "opaque2552210" (
+                                    instanceable = false
+                                )
+                                {
+                                }
+                            }
+                        }
+
+                        over "rpb2_1" (
+                            instanceable = false
+                        )
+                        {
+                        }
+                    }
+
+                    over "rb2" (
+                        instanceable = false
+                    )
+                    {
+                        over "VisualMaterials"
+                        {
+                            over "opaque636363" (
+                                instanceable = false
+                            )
+                            {
+                            }
+                        }
+                    }
+
+                    over "rb2_1" (
+                        instanceable = false
+                    )
+                    {
+                    }
+                }
+
+                over "rpb1" (
+                    prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+                )
+                {
+                    custom float physxContactReport:threshold = 0
+                    custom float physxRigidBody:sleepThreshold = 0
+
+                    over "rpb1" (
+                        instanceable = false
+                    )
+                    {
+                        over "VisualMaterials"
+                        {
+                            over "opaque2552210" (
+                                instanceable = false
+                            )
+                            {
+                            }
+                        }
+                    }
+
+                    over "rpb1_1" (
+                        instanceable = false
+                    )
+                    {
+                    }
+                }
+
+                over "rb1" (
+                    instanceable = false
+                )
+                {
+                    over "VisualMaterials"
+                    {
+                        over "opaque666666" (
+                            instanceable = false
+                        )
+                        {
+                        }
+                    }
+                }
+
+                over "rb1_1" (
+                    instanceable = false
+                )
+                {
+                }
+            }
+
+            over "lb1" (
+                prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+            )
+            {
+                custom float physxContactReport:threshold = 0
+                custom float physxRigidBody:sleepThreshold = 0
+
+                over "lb2" (
+                    prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+                )
+                {
+                    custom float physxContactReport:threshold = 0
+                    custom float physxRigidBody:sleepThreshold = 0
+
+                    over "lb3" (
+                        prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+                    )
+                    {
+                        custom float physxContactReport:threshold = 0
+                        custom float physxRigidBody:sleepThreshold = 0
+
+                        over "lbfoot" (
+                            prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+                        )
+                        {
+                            custom float physxContactReport:threshold = 0
+                            custom float physxRigidBody:sleepThreshold = 0
+
+                            over "lbfoot" (
+                                instanceable = false
+                            )
+                            {
+                                over "VisualMaterials"
+                                {
+                                    over "opaque666666" (
+                                        instanceable = false
+                                    )
+                                    {
+                                    }
+                                }
+                            }
+
+                            over "lbfoot_1" (
+                                instanceable = false
+                            )
+                            {
+                            }
+                        }
+
+                        over "lb3" (
+                            instanceable = false
+                        )
+                        {
+                            over "VisualMaterials"
+                            {
+                                over "opaque252525" (
+                                    instanceable = false
+                                )
+                                {
+                                }
+                            }
+                        }
+
+                        over "lb3_1" (
+                            instanceable = false
+                        )
+                        {
+                        }
+                    }
+
+                    over "lpb2" (
+                        prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+                    )
+                    {
+                        custom float physxContactReport:threshold = 0
+                        custom float physxRigidBody:sleepThreshold = 0
+
+                        over "lpb2" (
+                            instanceable = false
+                        )
+                        {
+                            over "VisualMaterials"
+                            {
+                                over "opaque2552210" (
+                                    instanceable = false
+                                )
+                                {
+                                }
+                            }
+                        }
+
+                        over "lpb2_1" (
+                            instanceable = false
+                        )
+                        {
+                        }
+                    }
+
+                    over "lb2" (
+                        instanceable = false
+                    )
+                    {
+                        over "VisualMaterials"
+                        {
+                            over "opaque636363" (
+                                instanceable = false
+                            )
+                            {
+                            }
+                        }
+                    }
+
+                    over "lb2_1" (
+                        instanceable = false
+                    )
+                    {
+                    }
+                }
+
+                over "lpb1" (
+                    prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+                )
+                {
+                    custom float physxContactReport:threshold = 0
+                    custom float physxRigidBody:sleepThreshold = 0
+
+                    over "lpb1" (
+                        instanceable = false
+                    )
+                    {
+                        over "VisualMaterials"
+                        {
+                            over "opaque2552210" (
+                                instanceable = false
+                            )
+                            {
+                            }
+                        }
+                    }
+
+                    over "lpb1_1" (
+                        instanceable = false
+                    )
+                    {
+                    }
+                }
+
+                over "lb1" (
+                    instanceable = false
+                )
+                {
+                    over "VisualMaterials"
+                    {
+                        over "opaque666666" (
+                            instanceable = false
+                        )
+                        {
+                        }
+                    }
+                }
+
+                over "lb1_1" (
+                    instanceable = false
+                )
+                {
+                }
+            }
+
+            over "base_inertia" (
+                prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+            )
+            {
+                custom float physxContactReport:threshold = 0
+                custom float physxRigidBody:sleepThreshold = 0
+            }
+
+            over "Body_front" (
+                prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+            )
+            {
+                custom float physxContactReport:threshold = 0
+                custom float physxRigidBody:sleepThreshold = 0
+
+                over "Body_front" (
+                    instanceable = false
+                )
+                {
+                    over "VisualMaterials"
+                    {
+                        over "opaque2552210" (
+                            instanceable = false
+                        )
+                        {
+                        }
+                    }
+                }
+
+                over "Body_front_1" (
+                    instanceable = false
+                )
+                {
+                }
+            }
+
+            over "Board_PCB" (
+                prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+            )
+            {
+                custom float physxContactReport:threshold = 0
+                custom float physxRigidBody:sleepThreshold = 0
+
+                over "Board_PCB" (
+                    instanceable = false
+                )
+                {
+                    over "VisualMaterials"
+                    {
+                        over "opaque646464" (
+                            instanceable = false
+                        )
+                        {
+                        }
+                    }
+                }
+
+                over "Board_PCB_1" (
+                    instanceable = false
+                )
+                {
+                }
+            }
+
+            over "Shell_Side" (
+                prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+            )
+            {
+                custom float physxContactReport:threshold = 0
+                custom float physxRigidBody:sleepThreshold = 0
+
+                over "Shell_Side" (
+                    instanceable = false
+                )
+                {
+                    over "VisualMaterials"
+                    {
+                        over "opaque2552210" (
+                            instanceable = false
+                        )
+                        {
+                        }
+                    }
+                }
+
+                over "Shell_Side_1" (
+                    instanceable = false
+                )
+                {
+                }
+            }
+
+            over "imu_link" (
+                prepend apiSchemas = ["PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+            )
+            {
+                custom float physxContactReport:threshold = 0
+                custom float physxRigidBody:sleepThreshold = 0
+            }
+
+            over "base_link" (
+                instanceable = false
+            )
+            {
+                over "VisualMaterials"
+                {
+                    over "opaque252525" (
+                        instanceable = false
+                    )
+                    {
+                    }
+                }
+            }
+
+            over "base_link_1" (
+                instanceable = false
+            )
+            {
+            }
+        }
+    }
+    variantSet "Physics" = {
+        "mujoco" (
+            prepend payload = @./payloads/Physics/mujoco.usda@
+        ) {
+
+        }
+        "none" {
+
+        }
+        "physics" (
+            prepend payload = @./payloads/Physics/physics.usda@
+        ) {
+
+        }
+        "physx" (
+            prepend payload = @./payloads/Physics/physx.usda@
+        ) {
+
+        }
+    }
+}
+

@@ -1,0 +1,10 @@
+{
+  "dataset": "distill output: 614400 (obs45, act45) pairs from the phase-1 teacher on MP2-Walk-CpgResidual-PlayRand-v0, commands 0.05/0.075/0.10 m/s, 512 envs x 400 steps each",
+  "rows": 614400,
+  "epochs": 40,
+  "augment": true,
+  "final_val_mse": 0.0002712503192014992,
+  "seed": 0,
+  "std_param": 0.8,
+  "sha256": "92cb5922abd4e942a741a196c8c06f10a47e9e6151af9c94d29d03d6ad6cc74b"
+}
