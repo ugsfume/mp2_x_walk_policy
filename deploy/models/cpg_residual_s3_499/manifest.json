@@ -1,0 +1,28 @@
+{
+  "contract": "cpg-residual-47",
+  "source_checkpoint": "phase1/checkpoints/cpg_residual_s3_499.pt",
+  "source_checkpoint_sha256": "adfee7b7f664229994d1b4a45159ed9d41da13e56de4ed433235e992b5ead35c",
+  "policy.onnx": {
+    "sha256": "39d098129c3111e5e03f247bb81011c85a55e990c4dc7048156fa337da48f370",
+    "input": {
+      "dtype": "float32",
+      "name": "obs",
+      "shape": [
+        1,
+        47
+      ]
+    },
+    "output": {
+      "dtype": "float32",
+      "name": "actions",
+      "shape": [
+        1,
+        12
+      ]
+    }
+  },
+  "policy.onnx.data": {
+    "sha256": "faa6ec5360c98f7307cbdb72c31be58f5a2176ee95ff52621087ac95dfe689ee"
+  },
+  "export": "mp2_x_walk_policy.scripts.export_policy (rsl_rl OnPolicyRunner.export_policy_to_onnx)"
+}

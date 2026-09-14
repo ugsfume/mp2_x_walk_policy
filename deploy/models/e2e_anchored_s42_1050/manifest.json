@@ -1,0 +1,28 @@
+{
+  "contract": "end-to-end-45",
+  "source_checkpoint": "phase2/checkpoints/e2e_anchored_s42_1050.pt",
+  "source_checkpoint_sha256": "1f8de3f9cdb7db27deb70fdcd70167f1f722eab7548b3e558668d0daacdd40cd",
+  "policy.onnx": {
+    "sha256": "6cc19ed577298ca81ee118355df04cdd1f7b1e20d583b3dc9c138af439e36d8e",
+    "input": {
+      "dtype": "float32",
+      "name": "obs",
+      "shape": [
+        1,
+        45
+      ]
+    },
+    "output": {
+      "dtype": "float32",
+      "name": "actions",
+      "shape": [
+        1,
+        12
+      ]
+    }
+  },
+  "policy.onnx.data": {
+    "sha256": "82fcbc66d6e5e03e56681f0d0d0d6e956695a735abedbd33e3713bf5f36e7901"
+  },
+  "export": "mp2_x_walk_policy.scripts.export_policy (rsl_rl OnPolicyRunner.export_policy_to_onnx)"
+}

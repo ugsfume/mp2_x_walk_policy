@@ -1,0 +1,56 @@
+{
+  "arrays": [
+    {
+      "dtype": "float32",
+      "name": "command_x",
+      "sha256": "b488ce59ecb5521849f170549ef21997b922d89044e3c6aec1b31c55aabdccf5",
+      "shape": [
+        1200
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "expected_raw_actions",
+      "sha256": "073d4a91f5c86c88bca6f182713c59a532eaf247d3d68d4f7e96c4b4f6fb95c1",
+      "shape": [
+        1200,
+        12
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "observations",
+      "sha256": "0cf997a220a701632fe267a6aebdcd20b3468a11a7d7e50756e73117e4ffa071",
+      "shape": [
+        1200,
+        45
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "step_indices",
+      "sha256": "532f2836cd7d181c95f57e7001b9d12c8d468c70af43af3d14f11db3493d80a8",
+      "shape": [
+        1200
+      ]
+    }
+  ],
+  "data": {
+    "path": "trajectory_fixtures.npz",
+    "sha256": "d47cab7355c202e544a7ee21b524b5dcc7199f1185e0c4a8d15cc14bf91e2f7e"
+  },
+  "metadata": {
+    "checkpoint_sha256": "1f8de3f9cdb7db27deb70fdcd70167f1f722eab7548b3e558668d0daacdd40cd",
+    "checkpoint_torchscript_max_error": 3.5762786865234375e-07,
+    "commands_m_s": [
+      0.05,
+      0.1,
+      0.15
+    ],
+    "contract": "end-to-end-45",
+    "purpose": "closed-loop rollout in simulation: observations -> expected_raw_actions, per command block",
+    "steps_per_command": 400,
+    "task": "MP2-Walk-E2E-Play-v0"
+  },
+  "schema": "mp2_x_walk_fixtures/v1"
+}

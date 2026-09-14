@@ -1,0 +1,56 @@
+{
+  "arrays": [
+    {
+      "dtype": "float32",
+      "name": "command_x",
+      "sha256": "b962198a670ca5d7099d17798e680843e0ef7c37f15dfb88f8a251f2d3486a91",
+      "shape": [
+        150
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "expected_raw_actions",
+      "sha256": "5e7567e636e163ccb5255131684f34f20236fcc21f05062d282d83389061d436",
+      "shape": [
+        150,
+        12
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "observations",
+      "sha256": "978b32558764ceffc14d650c2d18a2a961b855c7c76cdc0357cb57cca75f5568",
+      "shape": [
+        150,
+        47
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "step_indices",
+      "sha256": "4bae258cc7c33a8447466e67433bbe0cb92021db05091c114fa74faba1e39f1c",
+      "shape": [
+        150
+      ]
+    }
+  ],
+  "data": {
+    "path": "trajectory_fixtures.npz",
+    "sha256": "219d3e5a33b2f17d7280e7f4b5924d2183b13ef955ae4bb1a6684cf59b1b8a04"
+  },
+  "metadata": {
+    "checkpoint_sha256": "adfee7b7f664229994d1b4a45159ed9d41da13e56de4ed433235e992b5ead35c",
+    "checkpoint_torchscript_max_error": 4.76837158203125e-07,
+    "commands_m_s": [
+      0.05,
+      0.1,
+      0.15
+    ],
+    "contract": "cpg-residual-47",
+    "purpose": "closed-loop rollout in simulation: observations -> expected_raw_actions, per command block",
+    "steps_per_command": 50,
+    "task": "MP2-Walk-CpgResidual-Play-v0"
+  },
+  "schema": "mp2_x_walk_fixtures/v1"
+}

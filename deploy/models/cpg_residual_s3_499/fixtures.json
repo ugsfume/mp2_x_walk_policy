@@ -1,0 +1,96 @@
+{
+  "arrays": [
+    {
+      "dtype": "float32",
+      "name": "expected_raw_actions",
+      "sha256": "1d770722ae52c0e66bd08706037582f88884618a56842ff42f85de9bdbbc2158",
+      "shape": [
+        128,
+        12
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "observations",
+      "sha256": "bbba9af057c2990e832af0daa984838387c178a18824863d8acc208e7597b8b9",
+      "shape": [
+        128,
+        47
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "transform_clamped_actions",
+      "sha256": "b9567945e8c6686e3e476111fa3fe6ea6a9822e7e762f70d8a9cbc1f3616e9f6",
+      "shape": [
+        32,
+        12
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "transform_cpg_offsets",
+      "sha256": "8606fe3df1f755da1e930b4116ca67e6d3f4212b1db8973eeb25bbbc4d791059",
+      "shape": [
+        32,
+        12
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "transform_observations",
+      "sha256": "305588abd1881b319c58d5846b31b03b87a4877232bbdaf15370fdb35548cb1c",
+      "shape": [
+        32,
+        47
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "transform_raw_actions",
+      "sha256": "b400e8e6e8d7e1fbb45e2424011e1fc9f841eb9d7f1c4f7e1685781b12de6c41",
+      "shape": [
+        32,
+        12
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "transform_targets",
+      "sha256": "9c83b8fec50fb800c703160d3eb9c1df036406d693940f3d0f32692e4b713264",
+      "shape": [
+        32,
+        12
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "transform_ticks",
+      "sha256": "9d96bab1f1b20ca21e53ab3eb36c3f8256d180da90c1f50b5e2c9bd40fd90ede",
+      "shape": [
+        32
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "transform_velocity_commands",
+      "sha256": "731b582b33de0215b0522c23ae6b2a966c9e7d31a04ff2047d7f8053f7872ed8",
+      "shape": [
+        32,
+        3
+      ]
+    }
+  ],
+  "data": {
+    "path": "fixtures.npz",
+    "sha256": "5e49bf160d2e2506394442f8b45fa5cf455178f873a7f5f0040e863f090e03db"
+  },
+  "metadata": {
+    "action_scale": 0.11999999731779099,
+    "contract": "cpg-residual-47",
+    "joint_order": "ROS: lf(abd,hip,knee) rf lb rb",
+    "policy_frequency_hz": 50.0,
+    "purpose": "policy parity: observations -> expected_raw_actions (TorchScript, CPU); transform_*: action decoding rows"
+  },
+  "schema": "mp2_x_walk_fixtures/v1"
+}
