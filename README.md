@@ -134,8 +134,3 @@ Simulation is a good filter and a poor ranker. It did not predict the left
 arc, it does not reproduce how a foot catches on a high-friction mat, and it
 cannot see a foot sliding through stance the way a camera can. Two things
 told us more than any sim number: tape on the floor, and video of the feet.
-
-## License
-
-Apache-2.0. The robot description the asset derives from is MangDang's
-(Apache-2.0); see `NOTICE`.
