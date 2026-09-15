@@ -75,3 +75,19 @@ checkpoint on one machine: two launches of the same task at seed 42 for
 Across GPUs or driver versions expect the same distribution of outcomes
 over seeds, not the same bytes. Evaluation (`scripts/eval.sh`) is not
 seeded; repeat it when a verdict lands near a bar.
+
+What the seed does not pin is the outcome. The seed decides which gait
+variant PPO settles into, and the variants differ: across the phase-2
+seeds we have trained (the README table plus a sweep from a freshly
+distilled clone) speed spans roughly 0.07–0.085 m/s, f0 1.73–2.04 Hz, and
+the left/right balance of the gait runs from symmetric to visibly
+one-sided. The clock keeps phase 1 much tighter (all seeds 2.04 Hz,
+0.098–0.108 m/s). Two further draws sit on top: clone collection is
+unseeded, so every `phase2/run_distill.sh` gives a different clone; and
+every evaluation episode is a different start — an end-to-end policy can
+settle into a left- or right-heavy limit cycle per episode, so one
+rendered clip is one draw, not the policy. The shipped phase-2 checkpoint
+is seed 42 chosen out of four. Reproducing the *result* therefore means
+the same sweep over seeds and the same selection (`phase2/run_select.sh`,
+median-of-3 evaluations), not one run; a single seed that walks worse
+than the shipped checkpoint is expected, not a failed reproduction.
