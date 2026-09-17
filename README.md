@@ -166,8 +166,4 @@ clearance), posture, and robustness to the measured observation noise
 Simulation is a good filter and a poor ranker. It did not predict the left
 arc, it does not reproduce how a foot catches on a high-friction mat, and it
 cannot see a foot sliding through stance the way a camera can. Two things
-<<<<<<< Updated upstream
 told us more than any sim number: tape on the floor, and video of the feet.
-=======
-told us more than any sim number: tape on the floor, and video of the feet.
->>>>>>> Stashed changes
