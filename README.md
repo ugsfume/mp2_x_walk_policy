@@ -23,19 +23,52 @@ Expect to re-measure before expecting the same numbers.
 
 ## How the pieces fit
 
+```mermaid
+flowchart TB
+    plant["<b>plant/</b> — the measured actuator model and observation-noise profile<br/>(docs/methodology.md). Every simulation below runs on it."]
+
+    t1["<b>phase1/run_train.sh</b><br/>PPO from scratch — 47-dim observation with a gait clock,<br/>action = residual on the fixed 2 Hz trot prior<br/>4 seeds × 500 iterations"]
+    s1[/"shipped: phase1/checkpoints/<br/>cpg_residual_s3_499.pt"/]
+    c1(["<b>phase-1 checkpoint</b> = the teacher"])
+
+    t2["<b>phase2/run_distill.sh</b><br/>roll the teacher in sim, fit a 45-dim network (no clock)<br/>to its actions in the end-to-end contract"]
+    s2[/"shipped: phase2/checkpoints/<br/>bc_clone.pt"/]
+    c2(["<b>clone</b> — same gait, new contract, weak on its own"])
+
+    t3["<b>phase2/run_train.sh</b><br/>PPO warm-started FROM the clone and pulled back<br/>TOWARD it by a constant anchor loss<br/>4 seeds × 1300 iterations"]
+    s3[/"shipped: phase2/checkpoints/<br/>e2e_anchored_s42_1050.pt"/]
+    c3(["<b>phase-2 checkpoint</b>"])
+
+    e1["<b>scripts/eval.sh</b> + analysis/gate_table.py<br/>gates: health, gait family, posture, noise robustness"]
+    e2["<b>phase2/run_select.sh</b> → scripts/openloop_replay.sh<br/>checkpoint ladder, then the open-loop bar (walks blind ≥ 660 mm)"]
+    e3["<b>export_policy</b> → deploy/<br/>ONNX + numpy contract, checked against fixtures"]
+
+    plant --> t1
+    t1 -- "retrain, then pick a seed" --> c1
+    s1 -. "or use as is (the default)" .-> c1
+    c1 --> t2
+    t2 -- "distil (unseeded)" --> c2
+    s2 -. "or use as is (the default)" .-> c2
+    c2 --> t3
+    t3 -- "retrain, then select a seed" --> c3
+    s3 -. "or use as is (the default)" .-> c3
+    c3 --> e1 --> e2 --> e3
+
+    classDef script fill:#eef3fb,stroke:#3b6ea5,color:#000;
+    classDef artifact fill:#fff7e0,stroke:#b8860b,color:#000;
+    classDef shipped fill:#f2f2f2,stroke:#888,stroke-dasharray:4 3,color:#000;
+    classDef plant fill:#eaf5ea,stroke:#3a7d44,color:#000;
+    class t1,t2,t3,e1,e2,e3 script
+    class c1,c2,c3 artifact
+    class s1,s2,s3 shipped
+    class plant plant
 ```
-                measured plant + noise profile (plant/, docs/methodology.md)
-                                     |
-   phase1/run_train.sh   PPO  ------+------>  cpg_residual_s3_499.pt   (teacher)
-                                     |                 |
-   phase2/run_distill.sh  roll the teacher, fit a 45-dim clone  ---->  bc_clone.pt
-                                     |                 |
-   phase2/run_train.sh   PPO from the clone, anchored to the clone -->  e2e_anchored_s42_1050.pt
-                                     |
-   scripts/eval.sh, analysis/gate_table.py      pick a checkpoint
-   scripts/openloop_replay.sh                   ... that also walks blind
-   scripts/export_policy, deploy/               ONNX + a numpy contract for the robot
-```
+
+Solid arrows are the chain; dashed arrows are the shortcut. Every
+artifact ships with the repo and is the default input of the script below
+it, so you can enter at any step: evaluate the shipped policies as they
+are, retrain phase 2 from the shipped clone, or retrain the whole chain
+and compare (`docs/environment.md`, Reproducibility).
 
 Why the detour through the clone: trained from scratch, the 45-dim task
 either collapses to standing (under realistic observation noise) or settles
@@ -133,4 +166,8 @@ clearance), posture, and robustness to the measured observation noise
 Simulation is a good filter and a poor ranker. It did not predict the left
 arc, it does not reproduce how a foot catches on a high-friction mat, and it
 cannot see a foot sliding through stance the way a camera can. Two things
+<<<<<<< Updated upstream
 told us more than any sim number: tape on the floor, and video of the feet.
+=======
+told us more than any sim number: tape on the floor, and video of the feet.
+>>>>>>> Stashed changes
